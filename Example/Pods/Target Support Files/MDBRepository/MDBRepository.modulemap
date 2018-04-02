@@ -1,0 +1,6 @@
+framework module MDBRepository {
+  umbrella header "MDBRepository-umbrella.h"
+
+  export *
+  module * { export * }
+}

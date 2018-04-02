@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MDBRepository'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of MDBRepository.'
+  s.summary          = 'Database Repository Pattern on GRDB'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Our main focus to remove boilderplate code for Database Operation in iOS. This is comes with database repository pattern on GRDB
                        DESC
 
-  s.homepage         = 'https://github.com/swapnil.nandgave@celusion.com/MDBRepository'
+  s.homepage         = 'https://swapnil_celusion@bitbucket.org/mobiliteam/dbrepo-ios.git'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'swapnil.nandgave@celusion.com' => 'swapnil.nandgave@celusion.com' }
-  s.source           = { :git => 'https://github.com/swapnil.nandgave@celusion.com/MDBRepository.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://swapnil_celusion@bitbucket.org/mobiliteam/dbrepo-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
@@ -38,5 +38,5 @@ TODO: Add long description of the pod here.
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+    s.dependency 'GRDB.swift'
 end

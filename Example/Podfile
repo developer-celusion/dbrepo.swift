@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'MDBRepository_Example' do
   pod 'MDBRepository', :path => '../'
-
+  pod 'GRDB.swift'
   target 'MDBRepository_Tests' do
     inherit! :search_paths
 

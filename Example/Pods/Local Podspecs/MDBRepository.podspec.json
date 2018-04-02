@@ -1,0 +1,22 @@
+{
+  "name": "MDBRepository",
+  "version": "0.1.0",
+  "summary": "A short description of MDBRepository.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/swapnil.nandgave@celusion.com/MDBRepository",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "swapnil.nandgave@celusion.com": "swapnil.nandgave@celusion.com"
+  },
+  "source": {
+    "git": "https://github.com/swapnil.nandgave@celusion.com/MDBRepository.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MDBRepository/Classes/**/*"
+}

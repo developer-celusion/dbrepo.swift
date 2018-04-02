@@ -1,0 +1,6 @@
+framework module Pods_MDBRepository_Tests {
+  umbrella header "Pods-MDBRepository_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
