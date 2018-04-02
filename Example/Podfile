@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'MDBRepository_Example' do
+  pod 'MDBRepository', :path => '../'
+
+  target 'MDBRepository_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
