@@ -1,9 +1,9 @@
 {
   "name": "MDBRepository",
-  "version": "0.1.0",
-  "summary": "A short description of MDBRepository.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/swapnil.nandgave@celusion.com/MDBRepository",
+  "version": "0.1.1",
+  "summary": "Database Repository Pattern on GRDB",
+  "description": "Our main focus to remove boilderplate code for Database Operation in iOS. This is comes with database repository pattern on GRDB",
+  "homepage": "https://swapnil_celusion@bitbucket.org/mobiliteam/dbrepo-ios.git",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,16 @@
     "swapnil.nandgave@celusion.com": "swapnil.nandgave@celusion.com"
   },
   "source": {
-    "git": "https://github.com/swapnil.nandgave@celusion.com/MDBRepository.git",
-    "tag": "0.1.0"
+    "git": "https://swapnil_celusion@bitbucket.org/mobiliteam/dbrepo-ios.git",
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "MDBRepository/Classes/**/*"
+  "source_files": "MDBRepository/Classes/**/*",
+  "dependencies": {
+    "GRDB.swift": [
+
+    ]
+  }
 }

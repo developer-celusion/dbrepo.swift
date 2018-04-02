@@ -1,6 +1,7 @@
 PODS:
   - GRDB.swift (2.5.0)
-  - MDBRepository (0.1.0)
+  - MDBRepository (0.1.1):
+    - GRDB.swift
 
 DEPENDENCIES:
   - GRDB.swift
@@ -12,7 +13,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GRDB.swift: 4331c7b53f299aa1d150fc4e0afb6112df7e92ca
-  MDBRepository: a6947b214faefba4c65842e14927a920efe2ea96
+  MDBRepository: fe08894dc076bee93fd3713698eb44b63a801799
 
 PODFILE CHECKSUM: 3f55800747d14a265e2342ae857831435d437ff0
 
