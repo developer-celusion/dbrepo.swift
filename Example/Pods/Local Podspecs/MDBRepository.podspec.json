@@ -1,6 +1,6 @@
 {
   "name": "MDBRepository",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "summary": "Database Repository Pattern on GRDB",
   "description": "Our main focus to remove boilderplate code for Database Operation in iOS. This is comes with database repository pattern on GRDB",
   "homepage": "https://swapnil_celusion@bitbucket.org/mobiliteam/dbrepo-ios.git",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://swapnil_celusion@bitbucket.org/mobiliteam/dbrepo-ios.git",
-    "tag": "0.1.1"
+    "tag": "0.1.2"
   },
   "platforms": {
     "ios": "8.0"
