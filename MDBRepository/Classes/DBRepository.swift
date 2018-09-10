@@ -218,17 +218,17 @@ open class DBRepository {
         return list
     }
     
-    public func fetchAll<T:Record>(type:T.Type, fetchRequest: GRDB.Request)-> [T] {
-        var list = [T]()
-        do {
-            try dbQueue.inDatabase { db in
-                list = try type.fetchAll(db, fetchRequest)
-            }
-        }catch{
-            print(error)
-        }
-        return list
-    }
+//    public func fetchAll<T:Record>(type:T.Type, fetchRequest: GRDB.Request)-> [T] {
+//        var list = [T]()
+//        do {
+//            try dbQueue.inDatabase { db in
+//                list = try type.fetchAll(db, fetchRequest)
+//            }
+//        }catch{
+//            print(error)
+//        }
+//        return list
+//    }
     
     public func fetchAll<T:Record>(type:T.Type, rawQuery: String)-> [T] {
         var list = [T]()
@@ -343,17 +343,17 @@ open class DBRepository {
         return item
     }
     
-    public func fetchOne<T:Record>(type:T.Type, fetchRequest: GRDB.Request)-> T? {
-        var item : T? = nil
-        do {
-            try dbQueue.inDatabase { db in
-                item = try type.fetchOne(db,fetchRequest)
-            }
-        }catch{
-            print(error)
-        }
-        return item
-    }
+//    public func fetchOne<T:Record>(type:T.Type, fetchRequest: GRDB.Request)-> T? {
+//        var item : T? = nil
+//        do {
+//            try dbQueue.inDatabase { db in
+//                item = try type.fetchOne(db,fetchRequest)
+//            }
+//        }catch{
+//            print(error)
+//        }
+//        return item
+//    }
     
     public func fetchOne<T:Record>(type:T.Type, rawQuery: String)-> T? {
         var item : T? = nil
