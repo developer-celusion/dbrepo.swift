@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MDBRepository
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func createLocalDB() {
+        DBRepository.shared.configure(dbName: "db_local")
         TransactionType.create()
         LeadModel.create()
     }

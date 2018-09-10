@@ -15,9 +15,22 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.title = "DB Repository"
+    }
+    
+    @IBAction func insertAction(_ sender:Any) {
         insert()
+    }
+    
+    @IBAction func selectAction(_ sender:Any) {
         select()
+    }
+    
+    @IBAction func insertAction2(_ sender:Any) {
         insertLead()
+    }
+    
+    @IBAction func joinAction(_ sender:Any) {
         joinLead()
     }
 

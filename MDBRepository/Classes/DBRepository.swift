@@ -20,8 +20,12 @@ open class DBRepository {
     private let jsonDecoder = JSONDecoder()
     
     private init() {
+        
+    }
+    
+    public func configure(dbName:String) {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
-        let databasePath = documentsPath.appendingPathComponent("db_local.sqlite")
+        let databasePath = documentsPath.appendingPathComponent(dbName+".sqlite")
         do {
             dbQueue = try DatabaseQueue(path: databasePath)
             let dateFormatterGet = DateFormatter()
@@ -214,7 +218,7 @@ open class DBRepository {
         return list
     }
     
-    public func fetchAll<T:Record>(type:T.Type, fetchRequest: Request)-> [T] {
+    public func fetchAll<T:Record>(type:T.Type, fetchRequest: GRDB.Request)-> [T] {
         var list = [T]()
         do {
             try dbQueue.inDatabase { db in
@@ -339,7 +343,7 @@ open class DBRepository {
         return item
     }
     
-    public func fetchOne<T:Record>(type:T.Type, fetchRequest: Request)-> T? {
+    public func fetchOne<T:Record>(type:T.Type, fetchRequest: GRDB.Request)-> T? {
         var item : T? = nil
         do {
             try dbQueue.inDatabase { db in
