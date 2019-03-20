@@ -1,20 +1,32 @@
 PODS:
-  - GRDB.swift (2.5.0)
-  - MDBRepository (0.1.2):
-    - GRDB.swift
+  - GRDBCipher (3.6.2):
+    - SQLCipher (~> 3.4.1)
+  - MDBRepository (0.1.6):
+    - GRDBCipher
+  - SQLCipher (3.4.2):
+    - SQLCipher/standard (= 3.4.2)
+  - SQLCipher/common (3.4.2)
+  - SQLCipher/standard (3.4.2):
+    - SQLCipher/common
 
 DEPENDENCIES:
-  - GRDB.swift
+  - GRDBCipher
   - MDBRepository (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GRDBCipher
+    - SQLCipher
 
 EXTERNAL SOURCES:
   MDBRepository:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  GRDB.swift: 4331c7b53f299aa1d150fc4e0afb6112df7e92ca
-  MDBRepository: 6cd496c73494b5d69574beb6e74908f38f38f2f1
+  GRDBCipher: caccb02f13acd7f745e595cf84a70be3e91fb5f3
+  MDBRepository: 57925be01ad5b7b7ed46f85fda2ab1af06954456
+  SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
 
-PODFILE CHECKSUM: 3f55800747d14a265e2342ae857831435d437ff0
+PODFILE CHECKSUM: 7752e7bc4399ac67f6199d5cc7cc1e7fbd905ff5
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

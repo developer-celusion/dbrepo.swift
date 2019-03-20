@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MDBRepository'
-  s.version          = '0.1.5'
-  s.summary          = 'Database Repository Pattern on GRDB'
+  s.version          = '0.1.6'
+  s.summary          = 'Database Repository Pattern on GRDB with cipher'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -38,5 +38,6 @@ Our main focus to remove boilderplate code for Database Operation in iOS. This i
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-    s.dependency 'GRDB.swift'
+  # s.dependency 'GRDB.swift'
+    s.dependency 'GRDBCipher'
 end

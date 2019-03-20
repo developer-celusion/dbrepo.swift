@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GRDB
+import GRDBCipher
 import MDBRepository
 
 class ViewController: UIViewController {

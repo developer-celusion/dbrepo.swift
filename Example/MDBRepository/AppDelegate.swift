@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func createLocalDB() {
-        DBRepository.shared.configure(dbName: "db_local")
+        DBRepository.shared.configure(dbName: "db_local", password: "sdfkhlsdsf")
         TransactionType.create()
         LeadModel.create()
     }

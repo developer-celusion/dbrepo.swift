@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import GRDB
+//import GRDB
+import GRDBCipher
 
 open class DBColumn {
     

@@ -10,7 +10,8 @@
 //
 
 import Foundation
-import GRDB
+//import GRDB
+import GRDBCipher
 
 open class DBRepository {
     public static let shared = DBRepository()
@@ -23,11 +24,17 @@ open class DBRepository {
         
     }
     
-    public func configure(dbName:String) {
+    public func configure(dbName:String, password: String? = nil) {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
         let databasePath = documentsPath.appendingPathComponent(dbName+".sqlite")
         do {
-            dbQueue = try DatabaseQueue(path: databasePath)
+            if let passphrase = password {
+                var configuration = Configuration()
+                configuration.passphrase = passphrase
+                dbQueue = try DatabaseQueue(path: databasePath, configuration: configuration)
+            } else {
+                dbQueue = try DatabaseQueue(path: databasePath)
+            }
             let dateFormatterGet = DateFormatter()
             dateFormatterGet.dateFormat = SQLITE_FRMT
             jsonDecoder.dateDecodingStrategy = .formatted(dateFormatterGet)

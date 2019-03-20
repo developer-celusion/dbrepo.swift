@@ -8,7 +8,7 @@
 
 import Foundation
 import MDBRepository
-import GRDB
+import GRDBCipher
 
 class TransactionType: Record,Codable {
     

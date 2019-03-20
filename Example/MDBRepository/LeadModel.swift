@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import GRDB
+import GRDBCipher
 import MDBRepository
 
 class LeadModel: Record, Codable {
