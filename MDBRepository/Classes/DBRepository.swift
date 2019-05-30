@@ -19,9 +19,26 @@ open class DBRepository {
     private var dbQueue: DatabaseQueue!
     private let SQLITE_FRMT = "YYYY-MM-DD HH:mm:SS.SSS"
     private let jsonDecoder = JSONDecoder()
+    private var dbmigrator = DatabaseMigrator()
     
     private init() {
         
+    }
+    
+    public func requestMigrator()-> DatabaseMigrator {
+        return dbmigrator
+    }
+    
+    public func runMigration(migrationName: String? = nil) throws {
+        if let name = migrationName {
+            try dbmigrator.migrate(dbQueue, upTo: name);
+        } else {
+            try dbmigrator.migrate(dbQueue)
+        }
+    }
+    
+    public func appliedMigrations() throws -> Set<String> {
+        return try dbmigrator.appliedMigrations(in: dbQueue)
     }
     
     public func configure(dbName:String, password: String? = nil) {
