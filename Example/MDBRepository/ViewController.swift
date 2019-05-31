@@ -74,10 +74,12 @@ class ViewController: UIViewController {
     
     private func insertLead() {
         let lead = LeadModel(person:"Swapnil Nandgave",transactionType:1)
+        lead.alterCol = "Alter Swapnil N"
         DBRepository.shared.insert(item: lead)
         print(lead.id!)
         
         let lead2 = LeadModel(person:"Swapnil Nandgave Trans 2",transactionType:2)
+        lead2.alterCol = "Alter Trans 2"
         DBRepository.shared.insert(item: lead2)
         print(lead2.id!)
         
@@ -96,6 +98,12 @@ class ViewController: UIViewController {
         
         let array = DBRepository.shared.values(type: String.self,sql:"SELECT person FROM LeadModel");
         print(array.count)
+        
+//        let arrayAlter = DBRepository.shared.values(type: String.self,sql:"SELECT alterCol FROM LeadModel");
+//        print(arrayAlter.count)
+        
+        let leadModels = DBRepository.shared.fetchAll(type: LeadModel.self)
+        print(leadModels.count)
     }
 
 }

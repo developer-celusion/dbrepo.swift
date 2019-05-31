@@ -63,4 +63,12 @@ class TransactionType: Record,Codable {
         }
     }
     
+    public static func migration()-> DBMigration {
+        var list = [DBColumn]()
+        list.append(DBColumn(name: Columns.id.name).colType(Database.ColumnType.integer).primary(true,true))
+        list.append(DBColumn(name: Columns.name.name).notnull(true))
+        list.append(DBColumn(name: Columns.createdOn.name).colType(Database.ColumnType.datetime).notnull(true))
+        return DBMigration(tableName: TABLE_NAME, tableColumns: list)
+    }
+    
 }

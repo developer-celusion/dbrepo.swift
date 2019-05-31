@@ -8,6 +8,7 @@
 
 import UIKit
 import MDBRepository
+import GRDBCipher
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -45,8 +46,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func createLocalDB() {
         DBRepository.shared.configure(dbName: "db_local", password: "sdfkhlsdsf")
-        TransactionType.create()
-        LeadModel.create()
+        //TransactionType.create()
+        //LeadModel.create()
+        applyMigration()
+    }
+    
+    private func applyMigration() {
+        var dbMigrations = [DBMigration]()
+        dbMigrations.append(TransactionType.migration())
+        DBRepository.shared.addMigration(migrationName: "v1",migrations: dbMigrations) { status in
+            print(status)
+        }
+        do {
+            let list = try DBRepository.shared.appliedMigrations()
+            print(list.count)
+        } catch {
+            print(error)
+        }
+        
+        var newMigrations = [DBMigration]()
+        newMigrations.append(LeadModel.migration())
+        DBRepository.shared.addMigration(migrationName: "v2", migrations: newMigrations) { status in
+            print(status)
+        }
+        
+        var alterMigration = [DBMigration]()
+        alterMigration.append(LeadModel.alter())
+        DBRepository.shared.addMigration(migrationName: "v3", migrations: alterMigration) { status in
+            print(status)
+        }
+        
     }
 
 

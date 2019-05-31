@@ -21,24 +21,10 @@ open class DBRepository {
     private let jsonDecoder = JSONDecoder()
     private var dbmigrator = DatabaseMigrator()
     
+    private let FIRST_MIGRATION = "v1"
+    
     private init() {
         
-    }
-    
-    public func requestMigrator()-> DatabaseMigrator {
-        return dbmigrator
-    }
-    
-    public func runMigration(migrationName: String? = nil) throws {
-        if let name = migrationName {
-            try dbmigrator.migrate(dbQueue, upTo: name);
-        } else {
-            try dbmigrator.migrate(dbQueue)
-        }
-    }
-    
-    public func appliedMigrations() throws -> Set<String> {
-        return try dbmigrator.appliedMigrations(in: dbQueue)
     }
     
     public func configure(dbName:String, password: String? = nil) {
@@ -58,6 +44,69 @@ open class DBRepository {
         }catch {
             print(error)
         }
+    }
+    
+    public func appliedMigrations() throws -> Set<String> {
+        return try dbmigrator.appliedMigrations(in: dbQueue)
+    }
+    
+    public func addMigration(migrationName: String, migrations: [DBMigration], completion:@escaping(Bool)->Void) {
+        var status = false
+        do {
+            dbmigrator.registerMigration(migrationName) { db in
+                for migration in migrations {
+                    if migration.alter {
+                        try db.alter(table: migration.tableName) { t in
+                            for column in migration.tableColumns {
+                                let item = t.add(column: column.name, column.colType)
+                                if(column.notnull) {
+                                    item.notNull()
+                                }
+                                if(column.defaultValue != nil) {
+                                    item.defaults(to: column.defaultValue!)
+                                }
+                                if(column.unique) {
+                                    item.unique()
+                                }
+                                if(column.index) {
+                                    item.indexed()
+                                }
+                            }
+                        }
+                    } else {
+                        try db.create(table: migration.tableName, ifNotExists: true) { t in
+                            for column in migration.tableColumns {
+                                let item = t.column(column.name, column.colType)
+                                if(column.primary) {
+                                    if(column.auto) {
+                                        item.primaryKey(onConflict: nil, autoincrement: true)
+                                    } else {
+                                        item.primaryKey()
+                                    }
+                                }
+                                if(column.notnull) {
+                                    item.notNull()
+                                }
+                                if(column.defaultValue != nil) {
+                                    item.defaults(to: column.defaultValue!)
+                                }
+                                if(column.unique) {
+                                    item.unique()
+                                }
+                                if(column.index) {
+                                    item.indexed()
+                                }
+                            }
+                        }
+                    }
+                }
+                status = true
+            }
+            try dbmigrator.migrate(dbQueue)
+        }catch {
+            print(error)
+        }
+        return completion(status)
     }
     
     public func create(tableName:String,columns:[DBColumn],completion:@escaping(Bool)->Void) {

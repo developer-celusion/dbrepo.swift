@@ -50,7 +50,7 @@
 		8467AE5E20AC0A0100286577 /* LeadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadModel.swift; sourceTree = "<group>"; };
 		8467AE6020AC0BAD00286577 /* LeadTrans.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadTrans.swift; sourceTree = "<group>"; };
 		8FDAA1EE12A950F26469CB58 /* Pods-MDBRepository_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBRepository_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MDBRepository_Example/Pods-MDBRepository_Example.release.xcconfig"; sourceTree = "<group>"; };
-		A70BF1C8E593A0D5FC2DD5CC /* MDBRepository.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MDBRepository.podspec; path = ../MDBRepository.podspec; sourceTree = "<group>"; };
+		A70BF1C8E593A0D5FC2DD5CC /* MDBRepository.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MDBRepository.podspec; path = ../MDBRepository.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BB2674BE44B8111729BEAE97 /* Pods-MDBRepository_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MDBRepository_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MDBRepository_Example/Pods-MDBRepository_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E0BAB4CC8107C28467065B35 /* Pods_MDBRepository_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MDBRepository_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */

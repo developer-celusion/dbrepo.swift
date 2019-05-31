@@ -19,11 +19,13 @@ class LeadModel: Record, Codable {
         static let person = Column("person")
         static let transactionType = Column("transactionTypeID")
         static let entity = Column("entity")
+        static let alterCol = Column("alterCol")
     }
     
     var id:Int64?
     var person:String
     var transactionType:Int64?
+    var alterCol:String? = nil
     
     init(person: String, transactionType:Int64) {
         self.id = nil
@@ -40,6 +42,7 @@ class LeadModel: Record, Codable {
         id = row[Columns.id]
         person = row[Columns.person]
         transactionType = row[Columns.transactionType]
+        alterCol = row[Columns.alterCol]
         super.init(row: row)
     }
     
@@ -47,6 +50,7 @@ class LeadModel: Record, Codable {
         container[Columns.id] = id
         container[Columns.person] = person
         container[Columns.transactionType] = transactionType
+        container[Columns.alterCol] = alterCol
     }
     
     /// When relevant, update record ID after a successful insertion
@@ -62,6 +66,23 @@ class LeadModel: Record, Codable {
         DBRepository.shared.create(tableName: TABLE_NAME, columns: list) { status in
             print(status)
         }
+    }
+    
+    public static func migration()-> DBMigration {
+        var list = [DBColumn]()
+        list.append(DBColumn(name: Columns.id.name).colType(Database.ColumnType.integer).primary(true,true))
+        list.append(DBColumn(name: Columns.person.name).notnull(true))
+        list.append(DBColumn(name: Columns.transactionType.name).colType(Database.ColumnType.integer))
+        return DBMigration(tableName: TABLE_NAME, tableColumns: list)
+    }
+    
+    public static func alter()-> DBMigration {
+        var list = [DBColumn]()
+        list.append(DBColumn(name: Columns.alterCol.name).notnull(false))
+        let alterMigr = DBMigration(tableName: TABLE_NAME, tableColumns: list)
+        alterMigr.alter = true
+        return alterMigr
+        
     }
     
 }
