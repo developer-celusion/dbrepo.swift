@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'DBRepo.swift'
+  s.name             = 'MDBRepository'
   s.version          = '1.0.0'
   s.summary          = 'Database Repository Pattern on GRDB with cipher'
 
