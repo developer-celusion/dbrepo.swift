@@ -17,12 +17,12 @@ MDBRepository is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'DBRepo.swift'
+pod 'MDBRepository'
 ```
 
 ## Author
 
-swapnil.nandgave@celusion.com, swapnil.nandgave@celusion.com
+developer@celusion.com, developer@celusion.com
 
 ## License
 
