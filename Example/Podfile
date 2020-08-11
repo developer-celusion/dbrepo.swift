@@ -1,8 +1,10 @@
 use_frameworks!
 
+source 'https://github.com/CocoaPods/Specs.git'
+
 target 'MDBRepository_Example' do
   pod 'MDBRepository', :path => '../'
-  # pod 'GRDB.swift'
+  # pod 'MDBRepository'
   pod 'GRDBCipher'
   target 'MDBRepository_Tests' do
     inherit! :search_paths

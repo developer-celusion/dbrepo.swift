@@ -27,8 +27,8 @@ open class DBRepository {
         
     }
     
-    public func configure(dbName:String, password: String? = nil) {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as NSString
+    public func configure(directory: FileManager.SearchPathDirectory = .libraryDirectory , dbName:String, password: String? = nil) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(directory, .userDomainMask, true).first! as NSString
         let databasePath = documentsPath.appendingPathComponent(dbName+".sqlite")
         do {
             if let passphrase = password {

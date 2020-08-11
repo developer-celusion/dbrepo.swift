@@ -1,7 +1,7 @@
 PODS:
   - GRDBCipher (3.6.2):
     - SQLCipher (~> 3.4.1)
-  - MDBRepository (0.1.6):
+  - MDBRepository (1.0.0):
     - GRDBCipher
   - SQLCipher (3.4.2):
     - SQLCipher/standard (= 3.4.2)
@@ -14,7 +14,7 @@ DEPENDENCIES:
   - MDBRepository (from `../`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - GRDBCipher
     - SQLCipher
 
@@ -24,9 +24,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GRDBCipher: caccb02f13acd7f745e595cf84a70be3e91fb5f3
-  MDBRepository: 57925be01ad5b7b7ed46f85fda2ab1af06954456
+  MDBRepository: 248336eecc19a43d80eda43b56ce5d5a56858a98
   SQLCipher: f9fcf29b2e59ced7defc2a2bdd0ebe79b40d4990
 
-PODFILE CHECKSUM: 7752e7bc4399ac67f6199d5cc7cc1e7fbd905ff5
+PODFILE CHECKSUM: ea20c3b5aca773fb181e9575553ebb266871bbfa
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.8.3
